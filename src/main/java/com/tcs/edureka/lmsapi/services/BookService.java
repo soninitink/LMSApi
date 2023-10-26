@@ -57,26 +57,26 @@ public class BookService {
     }
 
     public List<Book> getAllBooksByGenre(int genreId) throws NotFoundException {
-        List<Book> books = bookGenreRepository.findBooksByGenre(genreId);
+        List<Book> books = bookGenreRepository.findBooksByGenreId(genreId);
         if(books == null)
             throw new NotFoundException("Book are not available for this Genre.");
         return books;
     }
     public List<Book> getAllBooksByAuthor(int authorId) throws NotFoundException {
-        List<Book> books = bookAuthorRepository.findAllBooksByAuthor(authorId);
+        List<Book> books = bookAuthorRepository.findAllBooksByAuthorId(authorId);
         if(books == null)
             throw new NotFoundException("Books are not available from this Author.");
         return books;
     }
     public List<Book> getAllBooksByLibraryBranch(int libraryBranchId) throws NotFoundException {
-        List<Book> books = libraryBookRepository.findAllBooksByLibraryBranch(libraryBranchId);
+        List<Book> books = libraryBookRepository.findAllBooksByLibraryBranchId(libraryBranchId);
         if(books == null)
             throw new NotFoundException("Books are not available in this Library Branch.");
         return books;
     }
 
     public List<Book> getAllBooksByBorrower(int borrowerId) throws NotFoundException {
-        List<Book> books = borrowerBookRepository.findAllBooksByBorrower(borrowerId);
+        List<Book> books = borrowerBookRepository.findAllBooksByBorrowerId(borrowerId);
         if(books == null)
             throw new NotFoundException("Books are not available for this Borrower.");
         return books;

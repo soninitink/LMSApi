@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 @Repository
 public interface LibraryBookRepository extends JpaRepository<LibraryBook, Integer> {
-    List<Book> findAllBooksByLibraryBranch(int libraryBranchId);
+    List<Book> findAllBooksByLibraryBranchId(int libraryBranchId);
 }

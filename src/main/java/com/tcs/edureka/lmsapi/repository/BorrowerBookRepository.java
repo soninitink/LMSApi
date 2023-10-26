@@ -8,5 +8,5 @@ import org.springframework.data.relational.core.sql.In;
 import java.util.List;
 
 public interface BorrowerBookRepository extends JpaRepository<BorrowerBook, Integer> {
-    List<Book> findAllBooksByBorrower(int borrowerId);
+    List<Book> findAllBooksByBorrowerId(int borrowerId);
 }
