@@ -2,13 +2,14 @@ package com.tcs.edureka.lmsapi.controllers;
 
 import com.tcs.edureka.lmsapi.models.Author;
 import com.tcs.edureka.lmsapi.services.AuthorService;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/author")
+@RequestMapping("/api/authors")
 public class AuthorController {
     private final AuthorService authorService;
     @Autowired

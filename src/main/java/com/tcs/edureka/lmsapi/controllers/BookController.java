@@ -18,13 +18,15 @@ public class BookController {
         this.bookService = bookService;
     }
 
-    @GetMapping
+    @GetMapping("/")
+    @ResponseBody
     public List<Book> getAllBooks() {
         return bookService.getAllBooks();
     }
 
-    @GetMapping("/{id}")
-    public Book getBookById(@PathVariable int id) {
+    @GetMapping
+    @ResponseBody
+    public Book getBookById(@RequestParam int id) {
         try {
             return bookService.getBookById(id);
         }catch (NotFoundException notFoundException){
@@ -36,22 +38,26 @@ public class BookController {
     }
 
     @PostMapping
+    @ResponseBody
     public Book addBook(@RequestBody Book book) {
         return bookService.addBook(book);
     }
 
-    @PutMapping("/{id}")
-    public Book updateBook(@PathVariable int id, @RequestBody Book updatedBook) {
+    @PutMapping
+    @ResponseBody
+    public Book updateBook(@RequestParam int id, @RequestBody Book updatedBook) {
         return bookService.updateBook(id, updatedBook);
     }
 
-    @DeleteMapping("/{id}")
-    public void deleteBook(@PathVariable int id) {
+    @DeleteMapping
+    @ResponseBody
+    public void deleteBook(@RequestParam int id) {
         bookService.deleteBook(id);
     }
 
-    @GetMapping("/genre/{id}")
-    public List<Book> getAllBooksByGenre(@PathVariable int id){
+    @GetMapping("/genre")
+    @ResponseBody
+    public List<Book> getAllBooksByGenre(@RequestParam int id){
         try {
             return bookService.getAllBooksByGenre(id);
         }catch (NotFoundException notFoundException){
@@ -62,8 +68,9 @@ public class BookController {
         }
     }
 
-    @GetMapping("/author/{id}")
-    public List<Book> getAllBooksByAuthor(@PathVariable int id){
+    @GetMapping("/author")
+    @ResponseBody
+    public List<Book> getAllBooksByAuthor(@RequestParam int id){
         try {
             return  bookService.getAllBooksByAuthor(id);
         }catch (NotFoundException notFoundException){
@@ -74,8 +81,9 @@ public class BookController {
         }
     }
 
-    @GetMapping("/library-branch/{id}")
-    public List<Book> getAllBooksByLibraryBranch(@PathVariable int id){
+    @GetMapping("/library-branch")
+    @ResponseBody
+    public List<Book> getAllBooksByLibraryBranch(@RequestParam int id){
         try {
            return bookService.getAllBooksByLibraryBranch(id);
         }catch (NotFoundException notFoundException){
@@ -85,8 +93,9 @@ public class BookController {
             return null;
         }
     }
-    @GetMapping("/borrower/{id}")
-    public List<Book> getAllBooksByBorrower(@PathVariable int id){
+    @GetMapping("/borrower")
+    @ResponseBody
+    public List<Book> getAllBooksByBorrower(@RequestParam int id){
         try {
             return bookService.getAllBooksByBorrower(id);
         }catch (NotFoundException notFoundException){

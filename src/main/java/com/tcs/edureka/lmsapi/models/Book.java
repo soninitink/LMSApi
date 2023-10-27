@@ -18,6 +18,5 @@ public class Book {
     private int id;
     private String title;
     private  int year;
-    private Date publishedDate;
     private double price;
 }
